@@ -11,6 +11,7 @@ $("#jumbo").backstretch("assets/images/horse.jpeg");
 //Global Variables
 var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "happy", "thumbs up", "eye rolls", "high-fives",
                       "yes", "excited", "surprised", "facepalm", "applause", "hello", "smh", "mic drop", "meh"];
+reactionArray.sort();                      
 var reactionImages = "";
 
 //AJAX
@@ -52,6 +53,7 @@ $(".addGif").on("click", function(event) {
   event.preventDefault();
   var gif = $("#searchGif").val().trim();
   reactionArray.push(gif);
+  reactionArray.sort();
   displayButtons();
   displayGif();
 });
