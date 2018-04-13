@@ -39,26 +39,23 @@ function displayGif() {
 //Show Buttons
 function displayButtons () {
   $("#reactionButtons").empty();
-  $("#reactionInput").val("");
   for (var i = 0; i < reactionArray.length; i++) {
     var buttons = $("<button class='btn btn-dark reactionBtns'>");
-    buttons.addClass('reaction_btn');
     buttons.attr("data-name", reactionArray[i]);
     buttons.text(reactionArray[i]);
     $("#reactionButtons").append(buttons);
   }
 };
 
-//Button Click
+//Search Button Click
 $(".addGif").on("click", function(event) {
   event.preventDefault();
-  var gif = $("#search").val().trim();
+  var gif = $("#searchGif").val().trim();
   reactionArray.push(gif);
   displayButtons();
   displayGif();
-
 });
 
 
-$(document).on("click", "reactionBtns", displayGif);
+$(document).on("click", ".reactionBtns", displayGif);
 displayButtons();
