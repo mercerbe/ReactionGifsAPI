@@ -1,0 +1,88 @@
+html {
+  height: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after, {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100%;
+  min-width: 100%;
+  box-sizing: inherit;
+  position: relative;
+  margin-bottom: 371px;
+  background-color: rgb(244,243,243);
+}
+
+.jumbotron-fluid {
+  color: white;
+  padding: 0 0 1% 0;
+  border-bottom: 3px solid #343a40;
+}
+
+h1 {
+  font-size: 90px;
+  color: #343a40;
+  text-shadow: 4px 4px rgb(244,243,243);
+  font-weight: 800;
+}
+
+.lead {
+  color: #343a40;
+  font-weight: 800;
+  text-shadow: 2px 2px rgb(244,243,243);
+}
+
+svg {
+  height: 0px;
+  padding: 0px;
+  margin: auto;
+}
+
+.search {
+  background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+  border: 3px solid #343a40;
+  border-radius: 10px;
+  margin-bottom: 0.5%;
+}
+
+form {
+  margin: auto;
+}
+
+.reactionBtns {
+  margin: 0.5%;
+  align-items: center;
+}
+
+#footer {
+  background-color: black;
+  color: white;
+  width: 100%;
+  position: absolute;
+  padding-top: 1%;
+  bottom: -371px;
+  left: 0;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  #footer {
+    bottom: -3000px;
+  }
+  h1 {
+    font-size: 50px;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  #footer {
+    bottom: -1500px;
+  }
+
+}

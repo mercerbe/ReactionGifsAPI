@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--stylesheets-->
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/share.css">
+	<link rel="stylesheet" href="assets/css/master.css">
+
+	<title>//Reaction Gif Search\\</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<!--jumbotron-->
+		<div class="jumbotron-fluid" id="jumbo">
+			<div class="containerShare">
+				<div class="button">Share</div>
+				<div class="social twitter"><a href="" target="_blank"><i class="fa fa-twitter"></i></a></div>
+				<div class="social facebook"><a href="" target="_blank"><i class="fa fa-facebook"></i></div>
+				<div class="social google"><a href="" target="_blank"><i class="fa fa-google-plus"></i></div>
+				<div class="social youtube"><a href="" target="_blank"><i class="fa fa-youtube"></i></a></div>
+		</div>
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<defs>
+					<filter id="goo">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+						<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+						<feBlend in="SourceGraphic" in2="goo" />
+					</filter>
+				</defs>
+			</svg>
+			<div class="container">
+				<h1 class="text-center">Reaction Gifs</h1>
+				<p class="lead text-center">Powered By Giphy<small>&copy</small></p>
+				<hr>
+				<nav class="navbar navbar-light search">
+					<form class="form-inline">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+					</form>
+				</nav>
+				<div id="reactionButtons"></div>
+			</div>
+		</div>
+<div class="gifContainer">
+
+</div>
+	</div>
+	<!--footer-->
+	<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Quick links</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About Me</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Github Repo</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Video Example</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Resources</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Giphy</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>APIs</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Snippets</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>AJAXX</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Code</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h5>Other Projects</h5>
+					<ul class="list-unstyled quick-links">
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Crystal Game</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Psychic Game</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Hangman Game</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>RPG Game</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Trivia Game</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline text-center">
+						<p>Connect With Me:</p>
+						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><img width="50px" src="assets/images/facebookBtn.png" /></a></li>
+						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><img width="50px" src="assets/images/twitterBtn.png" /></a></li>
+						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><img width="50px" src="assets/images/linkBtn.png" /></a></li>
+						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><img width="50px" src="assets/images/googleBtn.png" /></a></li>
+						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><img width="50px" src="assets/images/githubBtn.png" /></a></li>
+					</ul>
+				</div>
+				</hr>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
+
+				</div>
+			</div>
+		</div>
+		<p class="h6 copy">&copyBenMercerCodes</p>
+	</section>
+
+	<!--scripts-->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+	<script type="text/javascript" src="assets/javascript/logic.js"></script>
+</body>
+
+</html>
