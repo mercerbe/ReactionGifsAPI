@@ -13,21 +13,52 @@ var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "happy", "thumbs 
                       "yes", "excited", "surprised", "facepalm", "applause", "hello", "smh", "mic drop", "meh"];
 var reactionImages = "";
 
-//Show Array Buttons
+//AJAX
+function displayGif() {
+  var gif = $(this).attr("data-name")
+  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld";
+
+  $.ajax({
+    url: queryURL,
+    type: 'GET',
+  })
+  .done(function(response) {
+    console.log(response);
+    //show rating
+    //show gif paused
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+
+}
+
+//Show Buttons
 function displayButtons () {
   $("#reactionButtons").empty();
   $("#reactionInput").val("");
   for (var i = 0; i < reactionArray.length; i++) {
     var buttons = $("<button class='btn btn-dark reactionBtns'>");
     buttons.addClass('reaction_btn');
-    buttons.attr("reactionName", reactionArray[i]);
+    buttons.attr("data-name", reactionArray[i]);
     buttons.text(reactionArray[i]);
     $("#reactionButtons").append(buttons);
-    $("#reactionButtons").append(" ");
   }
 };
 
-
-$(document).ready(function() {
+//Button Click
+$(".addGif").on("click", function(event) {
+  event.preventDefault();
+  var gif = $("#search").val().trim();
+  reactionArray.push(gif);
   displayButtons();
+  displayGif();
+
 });
+
+
+$(document).on("click", "reactionBtns", displayGif);
+displayButtons();
