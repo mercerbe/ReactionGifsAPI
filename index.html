@@ -15,15 +15,15 @@
 	<title>//Reaction Gif Search\\</title>
 </head>
 <!-- TODO:
-- modal displays when gif button has already been made
--pagination for gif results
+- modal displays when gif button has already been made or no text in search or no gifs available
 - favorites section
 - rotating pics behind jumbotron
 - modal displays when no results are found
 - limit results to 10
 - prepend resulting gifs
 - onclick functions for gifs to animate them
-- 1 click download option  -->
+- 1 click download option
+- a 'more' option that lets you load 10 more gifs  -->
 <body>
 	<div class="wrapper">
 		<!--jumbotron-->
@@ -57,9 +57,10 @@
 				<div id="reactionButtons"></div>
 			</div>
 		</div>
-<div id="showGif">
+		<div class="gifContainer container">
 
-</div>
+		</div>
+
 	</div>
 	<!--footer-->
 	<section id="footer">
@@ -111,7 +112,6 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center">
-
 				</div>
 			</div>
 		</div>

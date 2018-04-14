@@ -10,14 +10,14 @@ $("#jumbo").backstretch("assets/images/horse.jpeg");
 
 //Global Variables
 var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "happy", "thumbs up", "eye rolls", "high-fives",
-                      "yes", "excited", "surprised", "facepalm", "applause", "hello", "smh", "mic drop", "meh"];
-reactionArray.sort();                      
+                      "yes", "excited", "surprised", "facepalm", "applause", "hello", "smh", "mic drop", "meh", "party", "gross", "fml"];
+reactionArray.sort();
 var reactionImages = "";
 
 //AJAX
 function displayGif() {
   var gif = $(this).attr("data-name")
-  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld";
+  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10";
 
   $.ajax({
     url: queryURL,
@@ -25,7 +25,20 @@ function displayGif() {
   })
   .done(function(response) {
     console.log(response);
-    //show rating
+    //show gif
+    var results = response.data;
+    for (var i = 0; i < results.length; i++) {
+
+
+    var showGif = $("<div>");
+    var p = $("<p>");
+    p.text = (results[i].rating);
+    var gifImage = $("<img>");
+    gifImage.attr("src", results[i].image.fixed_height.url);
+    showGif.append(p);
+    showGif.append(gifImage);
+    $(".gifContainer").prepend(showGif);
+  }
     //show gif paused
   })
   .fail(function() {
