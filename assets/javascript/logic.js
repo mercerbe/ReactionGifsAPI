@@ -15,7 +15,7 @@ reactionArray.sort();
 var reactionImages = "";
 
 //AJAX
-function displayGif() {
+function displayGif(gif) {
   var gif = $(this).attr("data-name")
   var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10";
 
@@ -59,14 +59,16 @@ function displayButtons () {
   }
 };
 
+//have gif info load from value of search form
 //Search Button Click
 $(".addGif").on("click", function(event) {
   event.preventDefault();
   var gif = $("#searchGif").val().trim();
+  console.log(gif);
   reactionArray.push(gif);
   reactionArray.sort();
+    displayGif(gif);
   displayButtons();
-  displayGif();
 });
 
 
