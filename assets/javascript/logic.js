@@ -29,11 +29,11 @@ function displayGif() {
     var results = response.data;
     for (var i = 0; i < results.length; i++) {
     var showGif = $("<div>");
-    var p = $("<p>");
-    p.text = (results[i].rating);
+    var rating = $("<h2>");
+    rating.text = (results[i].rating);
     var gifImage = $("<img>");
     gifImage.attr("src", results[i].images.fixed_height.url);
-    showGif.append(p);
+    showGif.append(rating);
     showGif.append(gifImage);
     $(".gifContainer").prepend(showGif);
   }

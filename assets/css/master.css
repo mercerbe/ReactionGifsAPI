@@ -71,7 +71,7 @@ form {
 
 @media (max-width: 480px) {
   #footer {
-    bottom: -3000px;
+    bottom: -1000px;
   }
   h1 {
     font-size: 50px;
@@ -82,7 +82,7 @@ form {
 
 @media (max-width: 768px) {
   #footer {
-    bottom: -1500px;
+    bottom: -800px;
   }
 
 }
