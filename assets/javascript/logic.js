@@ -9,8 +9,8 @@ $(".button").click(function(){
 $("#jumbo").backstretch("assets/images/horse.jpeg");
 
 //Global Variables
-var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "happy", "thumbs up", "eye rolls", "high-fives",
-                      "yes", "excited", "surprised", "facepalm", "applause", "hello", "smh", "mic drop", "meh", "party", "gross", "fml"];
+var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "thumbs up", "eye rolls", "high-fives",
+                      "yes", "excited", "surprised", "facepalm", "applause", "smh", "mic drop", "meh", "fml"];
 reactionArray.sort();
 var reactionImages = "";
 
@@ -24,6 +24,7 @@ function displayGif(gif) {
     type: 'GET',
   })
   .done(function(response) {
+    $("#jumbo").backstretch("assets/images/horse.jpeg");
     console.log(response);
     //show gif
     var results = response.data;
@@ -68,7 +69,7 @@ $(".addGif").on("click", function(event) {
   reactionArray.push(gif);
   reactionArray.sort();
     displayGif(gif);
-  displayButtons();
+    displayButtons();
 });
 
 
