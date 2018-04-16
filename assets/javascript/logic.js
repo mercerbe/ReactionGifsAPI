@@ -23,15 +23,15 @@ function displayGif(gif) {
     url: queryURL,
     type: 'GET',
   })
-  .done(function(response) {
+  .done(function(gif) {
     $("#jumbo").backstretch("assets/images/horse.jpeg");
-    console.log(response);
+    console.log(gif);
     //show gif
-    var results = response.data;
+    var results = gif.data;
     for (var i = 0; i < results.length; i++) {
     var showGif = $("<div>");
-    var rating = $("<h2>");
-    rating.text = (results[i].rating);
+    var rating = $("<p>");
+    rating.text("rating: " + results[i].rating);
     var gifImage = $("<img>");
     gifImage.attr("src", results[i].images.fixed_height.url);
     showGif.append(rating);
@@ -68,8 +68,8 @@ $(".addGif").on("click", function(event) {
   console.log(gif);
   reactionArray.push(gif);
   reactionArray.sort();
-    displayGif(gif);
     displayButtons();
+    displayGif();
 });
 
 

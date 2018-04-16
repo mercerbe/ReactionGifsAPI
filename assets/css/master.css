@@ -59,6 +59,10 @@ form {
   align-items: center;
 }
 
+.gifContainer {
+  color: #343a40;
+}
+
 #footer {
   background-color: black;
   color: white;
