@@ -12,11 +12,10 @@ $("#jumbo").backstretch("assets/images/horse.jpeg");
 var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "thumbs up", "eye rolls", "high-fives",
                       "yes", "excited", "surprised", "facepalm", "applause", "smh", "mic drop", "meh", "fml"];
 reactionArray.sort();
-var reactionImages = "";
 
 //AJAX
 function displayGif(gif) {
-  var gif = $(this).attr("data-name")
+  var gif = $(this).attr("data-name");
   var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10";
 
   $.ajax({
@@ -26,19 +25,24 @@ function displayGif(gif) {
   .done(function(gif) {
     $("#jumbo").backstretch("assets/images/horse.jpeg");
     console.log(gif);
-    //show gif
+    //show gif paused
     var results = gif.data;
     for (var i = 0; i < results.length; i++) {
-    var showGif = $("<div>");
+    var showGif = $("<div class='gifDiv'>");
     var rating = $("<p>");
     rating.text("rating: " + results[i].rating);
-    var gifImage = $("<img>");
-    gifImage.attr("src", results[i].images.fixed_height.url);
+    var gifImage = $("<img class='gifs animate still btn'>");
+    gifImage.attr({"src":results[i].images.fixed_height_still.url, "still":results[i].images.fixed_height_still.url, "animate":results[i].images.fixed_height.url});
     showGif.append(rating);
     showGif.append(gifImage);
     $(".gifContainer").prepend(showGif);
+    $(gifImage).on("click", function() {
+      $(this).toggleClass("animate");
+      $(this).attr("src", $(this).attr('animate'));
+      console.log(this);
+    })
   }
-    //show gif paused
+
   })
   .fail(function() {
     console.log("error");
@@ -52,6 +56,7 @@ function displayGif(gif) {
 //Show Buttons
 function displayButtons () {
   $("#reactionButtons").empty();
+  $("#jumbo").backstretch("assets/images/horse.jpeg");
   for (var i = 0; i < reactionArray.length; i++) {
     var buttons = $("<button class='btn btn-dark reactionBtns'>");
     buttons.attr("data-name", reactionArray[i]);
@@ -69,7 +74,7 @@ $(".addGif").on("click", function(event) {
   reactionArray.push(gif);
   reactionArray.sort();
     displayButtons();
-    displayGif();
+    //displayGif();
 });
 
 
