@@ -12,11 +12,10 @@ $("#jumbo").backstretch("assets/images/horse.jpeg");
 var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "thumbs up", "eye rolls", "high-fives",
                       "yes", "excited", "surprised", "facepalm", "applause", "smh", "mic drop", "meh", "fml"];
 reactionArray.sort();
-offset = 0;
 
 //AJAX
-function displayGif(gif) {
-  $(".loadMore").show();
+function displayGif() {
+  var offset = 0;
   var gif = $(this).attr("data-name");
   var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10&offset=" + offset;
   $.ajax({
@@ -30,7 +29,7 @@ function displayGif(gif) {
     var results = gif.data;
     for (var i = 0; i < results.length; i++) {
     var showGif = $("<div class='gifDiv'>");
-    var rating = $("<p>");
+    var rating = $("<p class='rating'>");
     rating.text("rating: " + results[i].rating);
     var gifImage = $("<img class='gifs animate still btn'>");
     gifImage.attr({"src":results[i].images.fixed_height_still.url, "still":results[i].images.fixed_height_still.url, "animate":results[i].images.fixed_height.url});
@@ -57,12 +56,10 @@ function displayGif(gif) {
     console.log("complete");
   });
 
-  //More/Clear Buttons
-  $(".loadMore").show();
-  $(".clearGifs").show();
+//Clear Gifs Button
   $(".clearGifs").on("click", function() {
     $(".gifContainer").empty();
-
+    $(window).scrollTop(0);
   });
 
 };
