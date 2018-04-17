@@ -7,8 +7,6 @@ $(".button").click(function(){
 })
 
 $("#jumbo").backstretch("assets/images/horse.jpeg");
-$(".loadMore").hide();
-$(".clearGifs").hide();
 
 //Global Variables
 var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "thumbs up", "eye rolls", "high-fives",
@@ -62,8 +60,12 @@ function displayGif(gif) {
   //More/Clear Buttons
   $(".loadMore").show();
   $(".clearGifs").show();
+  $(".clearGifs").on("click", function() {
+    $(".gifContainer").empty();
 
-}
+  });
+
+};
 
 //Show Buttons
 function displayButtons () {
