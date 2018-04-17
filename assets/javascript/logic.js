@@ -14,9 +14,9 @@ var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "thumbs up", "eye
 reactionArray.sort();
 
 //AJAX
-function displayGif() {
+function displayGif(gif) {
   var offset = 0;
-  var gif = $(this).attr("data-name");
+  //var gif = $(this).attr("data-name");
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10&offset=" + offset;
   $.ajax({
     url: queryURL,
@@ -69,7 +69,7 @@ function displayGif() {
 };
 
 //Show Buttons
-function displayButtons () {
+function displayButtons (e) {
   $("#reactionButtons").empty();
   $("#jumbo").backstretch("assets/images/horse.jpeg");
   for (var i = 0; i < reactionArray.length; i++) {
@@ -85,6 +85,7 @@ function displayButtons () {
 $(".addGif").on("click", function(event) {
   event.preventDefault();
   var gif = $("#searchGif").val().trim();
+  displayGif($("#searchGif").val());
   console.log(gif);
   reactionArray.push(gif);
   reactionArray.sort();
@@ -94,5 +95,7 @@ $(".addGif").on("click", function(event) {
 });
 
 //Call functions on button clicks
-$(document).on("click", ".reactionBtns", displayGif);
+$(document).on("click", ".reactionBtns", function(e) {
+  displayGif($(this).attr("data-name"));
+});
 displayButtons();
