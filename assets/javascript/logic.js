@@ -7,17 +7,20 @@ $(".button").click(function(){
 })
 
 $("#jumbo").backstretch("assets/images/horse.jpeg");
+$(".loadMore").hide();
+$(".clearGifs").hide();
 
 //Global Variables
 var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "thumbs up", "eye rolls", "high-fives",
                       "yes", "excited", "surprised", "facepalm", "applause", "smh", "mic drop", "meh", "fml"];
 reactionArray.sort();
+offset = 0;
 
 //AJAX
 function displayGif(gif) {
+  $(".loadMore").show();
   var gif = $(this).attr("data-name");
-  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10";
-
+  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10&offset=" + offset;
   $.ajax({
     url: queryURL,
     type: 'GET',
@@ -36,10 +39,15 @@ function displayGif(gif) {
     showGif.append(rating);
     showGif.append(gifImage);
     $(".gifContainer").prepend(showGif);
+    //show gif moving/paused
     $(gifImage).on("click", function() {
-      $(this).toggleClass("animate");
+      if($(this).hasClass("animate")){
       $(this).attr("src", $(this).attr('animate'));
-      console.log(this);
+      $(this).removeClass('animate');
+    } else {
+      $(this).attr("src", $(this).attr('still'));
+      $(this).addClass('animate');
+    }
     })
   }
 
@@ -50,6 +58,10 @@ function displayGif(gif) {
   .always(function() {
     console.log("complete");
   });
+
+  //More/Clear Buttons
+  $(".loadMore").show();
+  $(".clearGifs").show();
 
 }
 
@@ -65,7 +77,7 @@ function displayButtons () {
   }
 };
 
-//have gif info load from value of search form
+
 //Search Button Click
 $(".addGif").on("click", function(event) {
   event.preventDefault();
@@ -73,10 +85,10 @@ $(".addGif").on("click", function(event) {
   console.log(gif);
   reactionArray.push(gif);
   reactionArray.sort();
-    displayButtons();
-    //displayGif();
+  displayButtons();
+
 });
 
-
+//Call functions on button clicks
 $(document).on("click", ".reactionBtns", displayGif);
 displayButtons();

@@ -60,7 +60,23 @@ form {
 }
 
 .gifContainer {
+  margin-top: 1%;
   color: #343a40;
+}
+
+.btnRow {
+  margin-right: 5px;
+}
+
+.loadMore {
+  width: 30%;
+  bottom: 0;
+}
+
+.clearGifs {
+  width: 30%;
+  bottom: 0;
+  margin-left: 5px;
 }
 
 #footer {
