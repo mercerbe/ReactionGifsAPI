@@ -94,6 +94,14 @@ form {
   margin-right: auto;
 }
 
+.gifDownload {
+  display: flex;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
 #footer {
   background-color: #343a40;
   color: white;

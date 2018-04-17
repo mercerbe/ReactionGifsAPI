@@ -30,11 +30,15 @@ function displayGif() {
     for (var i = 0; i < results.length; i++) {
     var showGif = $("<div class='gifDiv'>");
     var rating = $("<p class='rating'>");
-    rating.text("rating: " + results[i].rating);
+    var downloadGif = $("<button class='btn btn-dark gifDownload'>");
     var gifImage = $("<img class='gifs animate still btn'>");
+    downloadGif.attr("href", results[i].images.original);
     gifImage.attr({"src":results[i].images.fixed_height_still.url, "still":results[i].images.fixed_height_still.url, "animate":results[i].images.fixed_height.url});
+    rating.text("rating: " + results[i].rating);
+    downloadGif.html("download " + results[i].title);
+    showGif.append(downloadGif);
     showGif.append(rating);
-    showGif.append(gifImage);
+    showGif.prepend(gifImage);
     $(".gifContainer").prepend(showGif);
     //show gif moving/paused
     $(gifImage).on("click", function() {
