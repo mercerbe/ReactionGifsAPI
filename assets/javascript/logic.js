@@ -6,7 +6,7 @@ $(".button").click(function(){
   $(".social.youtube").toggleClass("clicked");
 })
 
-$("#jumbo").backstretch("assets/images/horse.jpeg");
+
 
 //Global Variables
 var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "thumbs up", "eye rolls", "high-fives",
@@ -17,7 +17,7 @@ reactionArray.sort();
 function displayGif() {
   var offset = 0;
   var gif = $(this).attr("data-name");
-  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10&offset=" + offset;
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10&offset=" + offset;
   $.ajax({
     url: queryURL,
     type: 'GET',
@@ -84,6 +84,7 @@ $(".addGif").on("click", function(event) {
   console.log(gif);
   reactionArray.push(gif);
   reactionArray.sort();
+  $("#searchGif").val('');
   displayButtons();
 
 });
