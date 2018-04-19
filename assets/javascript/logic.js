@@ -30,12 +30,16 @@ function displayGif(gif) {
     for (var i = 0; i < results.length; i++) {
     var showGif = $("<div class='gifDiv'>");
     var rating = $("<p class='rating'>");
-    var downloadGif = $("<button class='btn btn-dark gifDownload'>");
+    var downloadGif = $("<a class='btn btn-dark gifDownload'>");
     var gifImage = $("<img class='gifs animate still btn'>");
-    downloadGif.attr("href", results[i].images.original);
-    gifImage.attr({"src":results[i].images.fixed_height_still.url, "still":results[i].images.fixed_height_still.url, "animate":results[i].images.fixed_height.url});
+    //download link
+    downloadGif.attr("href", results[i].images.original.url);
+    downloadGif.attr("src", results[i].images.original.url);
+    downloadGif.attr("download", results[i].images.original.url);
+    //show rating, download and image
+    gifImage.attr({"src":results[i].images.fixed_height_still.url, "alt":results[i].title, "still":results[i].images.fixed_height_still.url, "animate":results[i].images.fixed_height.url});
     rating.text("rating: " + results[i].rating);
-    downloadGif.html("download " + results[i].title);
+    downloadGif.html("Download: " + results[i].title);
     showGif.append(downloadGif);
     showGif.append(rating);
     showGif.prepend(gifImage);
@@ -51,7 +55,6 @@ function displayGif(gif) {
     }
     })
   }
-
   })
   .fail(function() {
     console.log("error");
@@ -64,6 +67,7 @@ function displayGif(gif) {
   $(".clearGifs").on("click", function() {
     $(".gifContainer").empty();
     $(window).scrollTop(0);
+    offset = 0;
   });
 
 };
