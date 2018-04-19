@@ -12,11 +12,14 @@ $(".button").click(function(){
 var reactionArray = ["mad", "crazy", "confused", "sad", "lol", "thumbs up", "eye rolls", "high-fives",
                       "yes", "excited", "surprised", "facepalm", "applause", "smh", "mic drop", "meh", "fml"];
 reactionArray.sort();
-
+var offset = 0;
 //AJAX
 function displayGif(gif) {
-  var offset = 0;
-  //var gif = $(this).attr("data-name");
+  $(".loadMore").on("click", function() {
+    offset += 10;
+    console.log(offset);
+    console.log(gif);
+  });
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=5VKuOF0tbf4Bnf3mmbSIE3LFAcRdBlld&limit=10&offset=" + offset;
   $.ajax({
     url: queryURL,
@@ -68,6 +71,7 @@ function displayGif(gif) {
     $(".gifContainer").empty();
     $(window).scrollTop(0);
     offset = 0;
+    console.log(offset);
   });
 
 };
@@ -88,6 +92,7 @@ function displayButtons (e) {
 //Search Button Click
 $(".addGif").on("click", function(event) {
   event.preventDefault();
+  offset = 0;
   var gif = $("#searchGif").val().trim();
   displayGif($("#searchGif").val());
   console.log(gif);
@@ -100,6 +105,12 @@ $(".addGif").on("click", function(event) {
 
 //Call functions on button clicks
 $(document).on("click", ".reactionBtns", function(e) {
+  if (offset === 0) {
+    offset ++;
+  } else {
+    offset += 10;
+  }
+  console.log("offset: " + offset);
   displayGif($(this).attr("data-name"));
 });
 displayButtons();
